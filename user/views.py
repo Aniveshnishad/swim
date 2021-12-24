@@ -78,6 +78,8 @@ class UserViewSet(ModelViewSet):
 
 
     def post(self, request, *args, **kwargs):
+        if(self.request.method == 'GET'):
+            return HttpResponse({"Hello":"hii"})
         try:
             delete_user_instance = User.objects.filter(deactivate=True, email=request.data['email'])
             if delete_user_instance:

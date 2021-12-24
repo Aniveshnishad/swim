@@ -95,14 +95,22 @@ WSGI_APPLICATION = 'SharkDeck.wsgi.application'
 #     }
 # else:
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'new',
+#         'USER': 'postgres',
+#         'PASSWORD': '1111',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'new',
-        'USER': 'postgres',
-        'PASSWORD': '1111',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'database', # This is where you put the name of the db file.
+                 # If one doesn't exist, it will be created at migration time.
     }
 }
 
@@ -144,12 +152,9 @@ APPEND_SLASH = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'Images')
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = str(BASE_DIR)
-MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
+# print("Media ROOT", MEDIA_ROOT)
+MEDIA_URL = ''
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
